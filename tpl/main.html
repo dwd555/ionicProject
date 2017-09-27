@@ -1,0 +1,59 @@
+<div id="header-bar" align-title="left" class="bar bar-header item-input-inset">
+    <h2 class=" icon-left button button-clear" ng-click="jump('main')" id="logo"></h2>
+    <div class="item-input-wrapper main-search">
+        <input  id="it" type="text"  value="搜索书名或书详情..." disabled>
+        <i id="searchIcon" class="icon ion-search form-icon "></i>
+    </div>
+    <button class="button button-icon icon ion-chatbox-working icon-right button-clear" ng-click="login()"></button>
+</div>
+<ion-content id="mainContent"  class="has-footer body-background" on-scroll="getNowPosition()">
+    <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+    <ion-slide-box auto-play="true" slide-interval="4000" does-continue="true"
+                   delegate-handle="slideimgs" on-slide-changed="slideHasChanged($index)"
+                   style="margin-top:-1px;">
+        <ion-slide ng-repeat="tmp in carouselList">
+            <div><img class="full-image" ng-src="{{tmp.src}}" /></div>
+        </ion-slide>
+    </ion-slide-box>
+    <div class="icon-list">
+        <ul class="icon-ul">
+            <li ng-repeat="tmp in iconList">
+                <a href="javascript:void(0)">
+                    <img ng-src="{{tmp.src}}" >
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="list">
+        <a href="" class="item">
+            <img class=" full-image" src="img/wuxian-lanmuxia-banner-H5.jpg">
+        </a>
+        <a ui-sref="detail({id:{{tmp.bid}}})" class="item item-thumbnail-left product-list" ng-repeat="tmp in list">
+            <img ng-src="img/{{tmp.img_sm}}"/>
+            <h2 class="book-title">{{tmp.name}}</h2>
+            <p class="book-content">作者：<span>{{tmp.author}}</span></p>
+            <p class="book-content">出版社：<span>{{tmp.publish}}</span></p>
+            <p class="book-content">
+                <span class="icon ion-ios-star assertive star" ng-if="tmp.star>0"></span>
+                <span class="icon ion-ios-star assertive star" ng-if="tmp.star>1"></span>
+                <span class="icon ion-ios-star assertive star" ng-if="tmp.star>2"></span>
+                <span class="icon ion-ios-star assertive star" ng-if="tmp.star>3"></span>
+                <span class="icon ion-ios-star assertive star" ng-if="tmp.star>4"></span>
+                <span>{{tmp.comment}}</span>条评论
+            </p>
+            <b class="assertive">¥<span>{{tmp.price}}</span></b>
+        </a>
+            <ion-infinite-scroll
+                    ng-if="moreDataCanBeLoaded"
+                    immediate-check="false"
+                    on-infinite="loadMore()"
+                    distance="1%"
+                    >
+            </ion-infinite-scroll>
+        <p class="text-center" ng-hide="moreDataCanBeLoaded">没有更多数据可以加载</p>
+    </div>
+</ion-content>
+<div id="goTop" ng-if="goTop">
+    <a href="javascript:void(0)"  ng-click="goToTop()"></a>
+</div>
+<div ng-include="'include/footer.html'"></div>

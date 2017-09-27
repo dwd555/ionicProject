@@ -1,0 +1,16 @@
+<ion-header-bar align-title="center">
+    <!--<button class="button button-icon icon ion-ios-arrow-back assertive icon-left" ng-click="back()"></button>-->
+    <h2 class="title">我的订单</h2>
+</ion-header-bar>
+<ion-content class="has-header has-footer order">
+    <div class="list">
+        <a class="item item-thumbnail-left item-icon-right" href="javascript:void(0)" ng-repeat="tmp in list track by $index">
+            <img ng-src="img/{{tmp.img_sm}}">
+            <h2>{{tmp.name}}</h2>
+            <p>数量: <span>{{tmp.count}}</span></p>
+            <p >总价：<b class="assertive">¥{{tmp.count*tmp.single_price}}</b></p>
+            <span class="icon ion-ios-arrow-right stable"></span>
+        </a>
+    </div>
+</ion-content>
+<div ng-include="'include/footer.html'"></div>

@@ -1,0 +1,23 @@
+<ion-header-bar align-title="center">
+    <button class="button button-icon icon ion-ios-arrow-back icon-left assertive  ion-chevron-left" ng-click="jump('main')">主页</button>
+    <h2 class="title">消息中心</h2>
+</ion-header-bar>
+<ion-content>
+    <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+    <div class="list">
+        <a href="javascript:void(0)" class="item item-avatar">
+            <img src="img/kefu.png">
+            <h2>系统消息</h2>
+            <p>2016年最后一次阅读狂欢</p>
+            <!--<span class="badge badge-assertive">0</span>-->
+            <span class="badge">1分钟前</span>
+        </a>
+        <a href="javascript:void(0)" class="item item-avatar">
+            <img src="img/kefu.png">
+            <h2>系统消息</h2>
+            <p>百万图书9折！</p>
+            <!--<span class="badge badge-assertive">0</span>-->
+            <span class="badge">1分钟前</span>
+        </a>
+    </div>
+</ion-content>

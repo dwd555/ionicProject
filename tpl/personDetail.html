@@ -1,0 +1,41 @@
+<div class="bar bar-header login-header" align-title="center">
+    <button class="button button-icon icon ion-ios-arrow-back icon-left assertive" ng-click="back()"></button>
+    <h1 class="title" >个人资料管理</h1>
+</div>
+<ion-content style="background-color: #f5f5f5;" class="has-header">
+    <div class="card list">
+        <a href="javascript:void(0)" class="item item-icon-right item-thumbnail-right">
+            <img ng-src="{{img_tx}}">
+            <h2 class="touxiang">头像</h2>
+            <i class="icon ion-ios-arrow-right stable"></i>
+        </a>
+        <a ng-click="updateNickname()" href="javascript:void(0)" class="item item-icon-right">
+            昵称
+            <span class="item-note">{{nickName}}</span>
+            <i class="icon ion-ios-arrow-right stable"></i>
+        </a>
+        <a href="javascript:void(0)" class="item item-icon-right">
+            手机号
+            <span class="item-note">{{phone}}</span>
+            <i class="icon ion-ios-arrow-right stable"></i>
+        </a>
+        <div class="item item-divider"></div>
+        <a href="javascript:void(0)" class="item item-icon-right">
+            更改密码
+            <span class="item-note"></span>
+            <i class="icon ion-ios-arrow-right stable"></i>
+        </a>
+        <a ng-click="updateAddress()" href="javascript:void(0)" class="item item-icon-right">
+            收货地址
+            <span style="white-space: nowrap;" class="item-note">{{minAddress}}</span>
+            <i class="icon ion-ios-arrow-right stable"></i>
+        </a>
+        <a ng-click="updateEmail()" href="javascript:void(0)" class="item item-icon-right">
+            邮箱
+            <span class="item-note">{{minEmail}}</span>
+            <i class="icon ion-ios-arrow-right stable"></i>
+        </a>
+        <div class="item item-divider"></div>
+        <button ng-click="logout()" class="button button-block light button-energized button-clear">退出登录</button>
+    </div>
+</ion-content>

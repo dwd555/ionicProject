@@ -1,0 +1,45 @@
+<!--<div ng-include="'include/detail-header.html'" class="header"></div>-->
+<ion-header-bar align-title="center">
+    <button class="button button-icon icon ion-ios-arrow-back icon-left assertive" ui-sref="main"></button>
+    <h2 class="title">商品详情</h2>
+    <button class="button button-icon icon ion-share icon-right" ng-click="show()"></button>
+</ion-header-bar>
+<ion-content class="has-header">
+    <!--<img ng-src= "img/{{list.img_lg}}" class="full-image"/>-->
+    <ion-slide-box auto-play="true"  does-continue="true"
+                   delegate-handle="slideimgs"  on-slide-changed="slideHasChanged($index)"
+                   style="margin-top:-1px;">
+        <ion-slide ng-repeat="tmp in list.img_lg track by $index">
+            <div><img class="full-image" ng-src="img/{{tmp}}"/></div>
+        </ion-slide>
+    </ion-slide-box>
+    <div class="row">
+        <div class="col detail-book-title">
+            {{list.name}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col detail-book-information">
+            {{list.introduction}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col detail-book-price">
+            <b>¥<span>{{list.price}}</span></b>
+        </div>
+    </div>
+    <div class="item item-divider cut">
+    </div>
+    <div class="row book-author">
+        <div class="col col-20 ">作者</div>
+        <div class="col">{{list.author}}</div>
+    </div>
+    <div class="row book-author">
+        <div class="col col-20">出版</div>
+        <div class="col">{{list.publish}}</div>
+    </div>
+    <img src="img/700x270_gr_1215.jpg" class="full-image">
+</ion-content>
+<ion-footer-bar>
+    <button  class="button button-block button-assertive detail-bottom" ng-click="isLogin()">立即购买</button>
+</ion-footer-bar>

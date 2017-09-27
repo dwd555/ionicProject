@@ -1,0 +1,49 @@
+<ion-header-bar align-title="center">
+    <button class="button button-icon icon ion-ios-arrow-back icon-left assertive" ng-click="back()"></button>
+    <h2 class="title">提交订单</h2>
+</ion-header-bar>
+<ion-content class="has-header has-footer">
+    <div class="list list-inset order">
+        <a class="item item-avatar" href="#">
+            <img ng-src="img/{{list.img_sm}}">
+
+            <h2>{{list.name}}</h2>
+
+            <p>¥{{list.price}} X 1</p>
+        </a>
+    </div>
+    <div class="list list-inset">
+        <div class="item row" id="price">
+            <div class="col col-center">数量：</div>
+            <div class="col text-right">
+                <button ng-click="operation(0)">-</button>
+                <input id="numCount" type="number" min="0"  ng-model="count" ng-change="change()">
+                <button ng-click="operation(1)">+</button>
+            </div>
+        </div>
+        <div class="item row count">
+            <div class="col">小计：</div>
+            <div class="col text-right"><b>￥<span id="sum">{{total}}</span></b></div>
+        </div>
+    </div>
+    <div class="list list-inset">
+        <div class="item">
+            您绑定的手机号为：
+        </div>
+        <div class="item">
+            {{securePhone}}
+        </div>
+        <div class="item">
+            修改送货地址：
+        </div>
+        <label class="item item-input">
+            <i class="icon ion-location placeholder-icon"></i>
+            <input id="addressInput" type="text" ng-model="address" value="{{address}}" placeholder="请输入送货地址">
+        </label>
+        <button id="submit" class="button button-block button-balanced" disabled ng-click="submit()">提交订单</button>
+    </div>
+    <div class="order-modal" ng-show="isbuy">
+        <p>购买成功</p>
+    </div>
+</ion-content>
+<!--<div ng-include="'include/footer.html'"></div>-->

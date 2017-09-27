@@ -1,0 +1,33 @@
+<div class="bar bar-header login-header"  align-title="center">
+    <button class="button button-icon icon ion-ios-arrow-back icon-left light" ng-click="back()"></button>
+    <h2 class="white title" >注册</h2>
+</div>
+<ion-content class="loginBg">
+    <div style="margin-top:5rem;" class="list list-inset">
+        <div id="regPhone" class="item item-input login-input">
+            <i class="icon ion-ios-person-outline placeholder-icon"></i>
+            <input  id="regInputPhone" type="tel" autofocus  placeholder="请输入您的手机号" ng-model="phone.num">
+            <button id="regPhoneClear" ng-click="clearValue('regInputPhone')" class="input-close-button button icon ion-ios-close icon-right stable" ></button>
+        </div>
+    </div>
+    <div class="list list-inset identifying-code ">
+        <label class="item item-input login-input" >
+            <input id="codeInput" type="text" placeholder="请输入图形验证码">
+        </label>
+        <canvas id="code">您的设备不支持canvas</canvas>
+        <button class="button button-icon icon-right ion-refresh button-stable" style="color:#aaa;" ng-click="refresh()"></button>
+    </div>
+    <!--<div class="list list-inset">-->
+        <!--<canvas id="code">您的设备不支持canvas</canvas>-->
+        <!--<button class="button button-icon icon-right ion-refresh button-stable" style="color:#aaa;" ng-click="refresh()"></button>-->
+    <!--</div>-->
+    <div class="list list-inset">
+        <input id="nextStep" type="button" class="button button-assertive button-block login-button" value="下一步" disabled>
+    </div>
+    <div id="regCode" class="order-modal reg regCode">
+        <p>验证码错误，请重新输入</p>
+    </div>
+    <div id="noticePhone" class="order-modal reg regTel">
+        <p>电话已经注册，请重新输入</p>
+    </div>
+</ion-content>
